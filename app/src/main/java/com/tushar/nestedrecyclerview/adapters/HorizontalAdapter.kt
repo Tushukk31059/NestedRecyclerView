@@ -28,7 +28,8 @@ class HorizontalAdapter(private val list: ArrayList<Int>):RecyclerView.Adapter<H
         holder.horizontalItemBinding.hImg.setOnClickListener {
             val context=holder.itemView.context
             val intent= Intent(context,FullScreenAct::class.java)
-            intent.putExtra("Res_Id",imageResId)
+            intent.putIntegerArrayListExtra("imageList",list)
+            intent.putExtra("position",position)
             context.startActivity(intent)
         }
     }

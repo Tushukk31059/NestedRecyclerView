@@ -7,16 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tushar.nestedrecyclerview.FullScreenAct
 import com.tushar.nestedrecyclerview.databinding.RecyclerActItemBinding
-import com.tushar.nestedrecyclerview.domains.ViewDomain
 
 class FullListVerticalAdapter(private val list:ArrayList<Int>):RecyclerView.Adapter<FullListVerticalAdapter.VerticalHolder>(){
 
     class VerticalHolder(val recyclerActItemBinding: RecyclerActItemBinding):RecyclerView.ViewHolder(recyclerActItemBinding.root) {
-        fun bind(verticalObj: ViewDomain) {
-            recyclerActItemBinding.root.setOnClickListener {
-
-            }
-        }
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VerticalHolder {
@@ -36,7 +30,8 @@ class FullListVerticalAdapter(private val list:ArrayList<Int>):RecyclerView.Adap
             holder.recyclerActItemBinding.img.setOnClickListener {
                 val context=holder.itemView.context
                 val intent= Intent(context, FullScreenAct::class.java)
-                intent.putExtra("Res_Id",imageResId)
+                intent.putIntegerArrayListExtra("imageList",list)
+                intent.putExtra("position",position)
                 context.startActivity(intent)
             }
     }

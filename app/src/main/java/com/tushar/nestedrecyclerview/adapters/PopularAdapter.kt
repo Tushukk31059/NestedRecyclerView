@@ -32,7 +32,8 @@ class PopularAdapter(private val list: ArrayList<Int>):RecyclerView.Adapter<Popu
         holder.popularItemBinding.pImg.setOnClickListener {
             val context=holder.itemView.context
             val intent= Intent(context, FullScreenAct::class.java)
-            intent.putExtra("Res_Id",imageResId)
+            intent.putIntegerArrayListExtra("imageList",list)
+            intent.putExtra("position",actualPosition)
             context.startActivity(intent)
         }
     }

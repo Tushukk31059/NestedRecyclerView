@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tushar.nestedrecyclerview.viewmodels.FullScreenActViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FullScreenAct">
-    <ImageView
-        android:id="@+id/blurImg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/demon_slayer"
-        android:alpha="0.3"/>
+    tools:context=".FullScreenAct"
+    android:background="@color/white">
+
     <ImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:adjustViewBounds="true"
+        imgRes="@{viewModel.currentImage}"
         android:scaleType="fitCenter"
-        android:src="@drawable/demon_slayer"
+        android:onClick="@{()->viewModel.changeImg()}"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
