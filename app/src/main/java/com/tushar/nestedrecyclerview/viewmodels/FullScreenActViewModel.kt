@@ -2,8 +2,7 @@ package com.tushar.nestedrecyclerview.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.tushar.nestedrecyclerview.R
+
 
 class FullScreenActViewModel : ViewModel() {
     private val imageList = MutableLiveData<ArrayList<Int>>()
@@ -13,6 +12,7 @@ class FullScreenActViewModel : ViewModel() {
         imageList.value = img
         currentIndex = position
         currentImage.value = img[position]
+
     }
 
     fun changeImg() {
